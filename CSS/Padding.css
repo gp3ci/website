@@ -1,0 +1,8 @@
+/* Padding styles */
+.container {
+    padding: 20px; /* Adds 20px padding on all sides */
+    padding-top: 10px; /* Adds 10px padding to the top */
+    padding-right: 15px; /* Adds 15px padding to the right */
+    padding-bottom: 10px; /* Adds 10px padding to the bottom */
+    padding-left: 5px; /* Adds 5px padding to the left */
+}

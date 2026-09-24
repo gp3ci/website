@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Info Manager</title>
+  <style>
+    :root{
+      --primary:#6200ea;
+      --secondary:#03dac6;
+      --bg:#f7f7fb;
+      --text:#333;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, 
+      Roboto, Arial, sans-serif;
+      margin:0; color:var(--text); background:var(--bg);
+       line-height:1.5;
+    }
+    header{background:var(--primary); color:#fff; 
+      padding:16px 20px}
+    main{max-width:900px; margin:24px auto; padding:0 16px}
+    .row{display:flex; gap:16px; flex-wrap:wrap}
+    .card{background:#fff; border:1px solid #e6e6ef;
+       border-radius:10px; padding:16px; box-shadow:0 4px 10px
+        rgba(0,0,0,.05)}
+    .grow{flex:1 1 340px}
+    label{display:block; font-weight:600; margin-top:12px}
+    input, select{width:100%; padding:10px; border:1px solid
+       #ccc; border-radius:8px}
+    input:focus, select:focus{outline:none; 
+      border-color:var(--primary)}
+    button{background:var(--primary); color:#fff; border:none;
+       padding:10px 14px; border-radius:8px; cursor:pointer}
+    button:hover{background:#4b00c2}
+    ul{padding-left:18px}
+    li{margin:6px 0}
+    .toolbar{display:flex; gap:10px; flex-wrap:wrap; 
+      margin-top:10px}
+    .muted{color:#666; font-size:.95rem}
+    .pill{display:inline-block; background:var(--secondary); 
+      color:#083; font-weight:600; padding:2px 8px; 
+      border-radius:999px; margin-left:8px}
+    .status{font-weight:600}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, 
+      Consolas, monospace}
+    .divider{height:1px; background:#ececf5; margin:14px 0}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student Info Manager <span class="pill">Hands-on JS</span></h1>
+    <div id="status" class="status">Loading time…</div>
+  </header>
+
+  <main>
+    <!-- INPUT / FORM -->
+    <section class="card grow" aria-labelledby="formTitle">
+      <h2 id="formTitle">Add a Student</h2>
+      <form id="studentForm" novalidate>
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" placeholder="e.g., Priya Sharma"
+               required minlength="2" maxlength="40" pattern="[A-Za-z ]{2,}" />
+        <small class="muted">Letters & spaces, min 2 chars</small>
+
+        <label for="age">Age</label>
+        <input id="age" name="age" type="number" placeholder="e.g., 21"
+        min="1" max="120" required />
+
+        <label for="track">Track</label>
+        <select id="track" name="track" required>
+          <option value="">— Select —</option>
+          <option value="Web">Web</option>
+          <option value="Data">Data</option>
+          <option value="AI">AI</option>
+          <option value="General">General</option>
+        </select>
+
+        <div class="toolbar">
+          <button type="submit" id="addBtn">Add Student</button>
+          <button type="button" id="avgBtn">Show Average Age</button>
+          <button type="button" id="luckyBtn">Pick Lucky Student</button>
+        </div>
+      </form>
+      <div class="divider"></div>
+      <label for="filter">Search by name</label>
+      <input id="filter" type="text" placeholder="Type to filter…"/>
+      <small class="muted">Case-insensitive contains filter</small>
+    </section>
+
+    <!-- LIST -->
+    <section class="card grow" aria-labelledby="listTitle">
+      <h2 id="listTitle">Students</h2>
+      <ul id="studentList" class="mono"></ul>
+      <p class="muted" id="emptyMsg">No students yet. 
+        Add one using the form.</p>
+    </section>
+
+    <!-- QUOTES / ASYNC -->
+    <section class="card grow" aria-labelledby="quoteTitle">
+      <h2 id="quoteTitle">Motivation</h2>
+      <p class="muted">Fetch a random quote via <code class="mono">
+        fetch()</code>.</p>
+      <button type="button" id="motivationBtn">Get Motivation</button>
+      <div id="quotes" style="margin-top:10px"></div>
+    </section>
+  </main>
+
+  <script>
+    // ------------------------------
+    // Core Data Structures
+    // ------------------------------
+    const students = []; // array of student objects 
+    // {name, age, track}
+
+    // Example object + array push (intro)
+    const sample = { name: "Demo User", age: 20, track: "General" };
+    students.push(sample);
+
+    // ------------------------------
+    // Utilities / Rendering
+    // ------------------------------
+    function renderList(filterText = "") {
+      const list = document.getElementById("studentList");
+      const emptyMsg = document.getElementById("emptyMsg");
+      list.innerHTML = ""; // clear
+
+      const q = filterText.trim().toLowerCase();
+
+      // Loop + destructuring + template literals + String API
+      let count = 0;
+      for (const { name, age, track } of students) { 
+        // for...of with object destructuring
+        if (q && !name.toLowerCase().includes(q)) continue;
+
+        const li = document.createElement("li");
+        li.textContent = `${name.toUpperCase()} (${age}) — 
+        ${trackMessage(track)}`; // template literal + String
+        list.appendChild(li);
+        count++;
+      }
+
+      emptyMsg.style.display = count === 0 ? "block" : "none";
+    }
+
+    function updateClock() {
+      const now = new Date(); // Date API
+      const status = document.getElementById("status");
+      status.textContent = `Today: ${now.toLocaleString()} | 
+      Students: ${students.length}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Switch example
+    function trackMessage(track) {
+      switch (track) {
+        case "Web": return "Web track selected";
+        case "Data": return "Data track selected";
+        case "AI": return "AI track selected";
+        default: return "General track";
+      }
+    }
+
+    // Rest parameter + classic for loop + Math
+    function averageAge(...ages) {
+      if (ages.length === 0) return 0;
+      let sum = 0;
+      for (let i = 0; i < ages.length; i++) { sum += ages[i]; }
+      return Math.round(sum / ages.length);
+    }
+
+    // Callback example
+    function processStudent(student, callback) {
+      callback(student.name);
+    }
+    const greetStudent = (name) => console.log(`Welcome, ${name}!`); // arrow fn
+
+    // ------------------------------
+    // Event Handling (DOM + Validation + Logic)
+    // ------------------------------
+    document.getElementById("studentForm").addEventListener("submit",
+     (e) => {
+      e.preventDefault(); // prevent page reload
+
+      const name = document.getElementById("name").value.trim();
+      const age = Number(document.getElementById("age").value);
+      const track = document.getElementById("track").value;
+
+      // JS validation (in addition to HTML5 attributes)
+      if (!name || name.length < 2 || !Number.isInteger(age) ||
+                 age <= 0 || !track) {
+        alert("Please enter a valid name, age, and track.");
+        return;
+      }
+
+      // Shorthand object literal + spread (clone)
+      const newStudent = { name, age, track };
+      processStudent(newStudent, greetStudent); // callback usage
+
+      students.push(newStudent);
+      const snapshot = [...students]; // spread operator (non-mutating copy)
+      console.log("Snapshot:", snapshot);
+
+      renderList(document.getElementById("filter").value);
+      e.target.reset();
+      document.getElementById("name").focus();
+    });
+
+    document.getElementById("filter").addEventListener("input", (e) => {
+      renderList(e.target.value);
+    });
+
+    document.getElementById("avgBtn").addEventListener("click", () => {
+      const ages = students.map(s => s.age);
+      alert(`Average age: ${averageAge(...ages)}`); // rest + spread
+    });
+
+    document.getElementById("luckyBtn").addEventListener("click", () => {
+      if (students.length === 0) return alert("No students yet!");
+      const idx = Math.floor(Math.random() * students.length); // Math API
+      const s = students[idx];
+      alert(`🎉 Lucky student: ${s.name} (${s.age}) — ${s.track}`);
+    });
+
+    // ------------------------------
+    // Async: fetch + Promises + try/catch
+    // ------------------------------
+    document.getElementById("motivationBtn").addEventListener("click", 
+                    async () => {
+      const box = document.getElementById("quotes");
+      const loading = document.createElement("p");
+      loading.textContent = "Fetching quote…";
+      box.appendChild(loading);
+
+      try {
+        const res = await fetch("https://api.quotable.io/random");
+        if (!res.ok) throw new Error("Network error");
+        const data = await res.json(); // Promise resolution
+        const p = document.createElement("p");
+        p.textContent = `"${data.content}" — ${data.author}`;
+        box.replaceChild(p, loading);
+      } catch (err) {
+        const p = document.createElement("p");
+        p.textContent = "Could not fetch a quote. Please try again later.";
+        box.replaceChild(p, loading);
+        console.error(err);
+      }
+    });
+
+    // Initial paint
+    renderList();
+  </script>
+</body>
+</html>

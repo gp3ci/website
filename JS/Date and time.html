@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Date and Time</title>
+</head>
+<body>
+    <h1>JavaScript Date and Time Example</h1>
+    <p>Open the browser console to see the output.</p>
+
+    <script>
+        // Get the current date and time
+        let currentDate = new Date();
+        console.log("Current Date and Time: ", currentDate); // Current date and time
+
+        // Get the current day, month, and year
+        let day = currentDate.getDate();
+        let month = currentDate.getMonth() + 1; // Months are zero-indexed
+        let year = currentDate.getFullYear();
+        console.log(`Current Day: ${day}, Month: ${month}, Year: ${year}`);
+
+        // Get the current hour, minute, and second
+        let hours = currentDate.getHours();
+        let minutes = currentDate.getMinutes();
+        let seconds = currentDate.getSeconds();
+        console.log(`Current Time: ${hours}:${minutes}:${seconds}`);
+
+        // Get the current timestamp (milliseconds since January 1, 1970)
+        let timestamp = currentDate.getTime();
+        console.log("Current Timestamp (milliseconds): ", timestamp);
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/* styles.css */
+h1 {
+    color: blue;
+    font-size: 24px;
+}
+p {
+    border: 2px solid black;
+    padding: 10px;
+}

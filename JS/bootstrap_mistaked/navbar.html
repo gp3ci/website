@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- ❌ mistake -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar – Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm"> <!-- ❌ mistake -->
+  <div class="container">
+    <!-- ❌ mistake -->
+    <a class="navbar-brand" href="#">MyBrand</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"></button>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- ❌ mistake (id mismatch with data-bs-target for dropdown later) -->
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="prodDrop" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false"> <!-- ❌ mistake -->
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="prodDrop"> <!-- ❌ mistake -->
+            <li><a class="dropdown-item" href="#">Starter</a></li>
+            <li><a class="dropdown-item" href="#">Pro</a></li>
+            <li><a class="dropdown-item" href="#">Enterprise</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <form class="d-flex" role="search">
+        <!-- ❌ mistake -->
+        <input class="form-control me-2" type="search" placeholder="Search">
+        <!-- ❌ mistake -->
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-5">
+  <h1>Navbar Demo</h1>
+  <p>Resize your browser to see the collapse behavior.</p>
+</main>
+
+<footer class="py-4 bg-dark text-white text-center">
+  <small>© Navbar Demo</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

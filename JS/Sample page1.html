@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive JS Page</title>
+    <link href="Sample.css" rel="stylesheet">
+</head>
+<body>
+
+    <h2>Interactive HTML Page Created Using JavaScript</h2>
+    
+    <button onclick="askUser()">Click to Start</button>
+
+    <div id="content"></div>
+
+    <script>
+        function askUser() {
+            let userName = prompt("Enter your name:");
+            if (userName) {
+                createPage(userName);
+            } else {
+                alert("Name is required to proceed!");
+            }
+        }
+
+        function createPage(name) {
+            let contentDiv = document.getElementById("content");
+            
+            // Greeting message based on time of day
+            let greeting = getGreeting();
+            
+            // Create a heading with event handling
+            let heading = document.createElement("h3");
+            heading.textContent = `${greeting}, ${name}!`;
+            heading.classList.add("highlight");
+            heading.onclick = function() {
+                this.style.color = getRandomColor();
+                this.classList.add("bounce");
+                setTimeout(() => this.classList.remove("bounce"), 300);
+            };
+
+            // Create a paragraph
+            let paragraph = document.createElement("p");
+            paragraph.textContent = "This page is dynamically created using JavaScript.";
+
+            // Display current date and time
+            let datePara = document.createElement("p");
+            let dateTime = new Date();
+            datePara.textContent = "Current Date & Time: " + dateTime.toLocaleString();
+
+            // Create an unordered list dynamically
+            let ul = document.createElement("ul");
+            let items = ["HTML", "CSS", "JavaScript"];
+            items.forEach(function(item) {
+                let li = document.createElement("li");
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+
+            // Clear previous content and append new elements
+            contentDiv.innerHTML = "";
+            contentDiv.appendChild(heading);
+            contentDiv.appendChild(paragraph);
+            contentDiv.appendChild(datePara);
+            contentDiv.appendChild(ul);
+
+            // Apply slide-in animation
+            contentDiv.style.opacity = 1;
+            contentDiv.style.transform = "translateX(0)";
+        }
+
+        function getGreeting() {
+            let hour = new Date().getHours();
+            let greeting;
+            switch (true) {
+                case (hour >= 5 && hour < 12):
+                    greeting = "Good Morning";
+                    break;
+                case (hour >= 12 && hour < 18):
+                    greeting = "Good Afternoon";
+                    break;
+                case (hour >= 18 && hour < 22):
+                    greeting = "Good Evening";
+                    break;
+                default:
+                    greeting = "Good Night";
+                    break;
+            }
+            return greeting;
+        }
+
+        function getRandomColor() {
+            let letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+
+</body>
+</html>
+

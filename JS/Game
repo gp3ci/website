@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+  <h1>Rock-Paper-Scissors</h1>
+  <button id="rock">Rock</button>
+  <button id="paper">Paper</button>
+  <button id="scissors">Scissors</button>
+  <p id="result"></p>
+
+  <script>
+    let rockButton = document.getElementById("rock");
+    let paperButton = document.getElementById("paper");
+    let scissorsButton = document.getElementById("scissors");
+    let resultParagraph = document.getElementById("result");
+
+    rockButton.addEventListener("click", playRock);
+    paperButton.addEventListener("click", playPaper);
+    scissorsButton.addEventListener("click", playScissors);
+    function playRock() {
+      let computerChoice = getComputerChoice();
+      resultParagraph.textContent = `You chose Rock. Computer chose ${computerChoice}. ${getWinner("Rock", computerChoice)}`;
+    }
+
+    function playPaper() {
+      let computerChoice = getComputerChoice();
+      resultParagraph.textContent = `You chose Paper. Computer chose ${computerChoice}. ${getWinner("Paper", computerChoice)}`;
+    }
+
+    function playScissors() {
+      let computerChoice = getComputerChoice();
+      resultParagraph.textContent = `You chose Scissors. Computer chose ${computerChoice}. ${getWinner("Scissors", computerChoice)}`;
+    }
+
+    function getComputerChoice() {
+      let choices = ["Rock", "Paper", "Scissors"];
+      return choices[Math.floor(Math.random() * choices.length)];
+    }
+
+    function getWinner(playerChoice, computerChoice) {
+      if (playerChoice === computerChoice) {
+        return "It's a tie!";
+      } else if ((playerChoice === "Rock" && computerChoice === "Scissors") ||
+      (playerChoice === "Paper" && computerChoice === "Rock") ||
+                   (playerChoice === "Scissors" && computerChoice === "Paper")) {
+        return "You win!";
+      } else {
+        return "Computer wins!";
+      }
+    }
+  </script>
+</body>
+</html>

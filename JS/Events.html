@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation & Event Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #counter {
+            font-size: 24px;
+            font-weight: bold;
+            color: darkblue;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Click Counter</h1>
+    <p>Clicks: <span id="counter">0</span></p>
+    <button id="btn">Click Me</button>
+
+    <script>
+        // Selecting the button and counter span
+        let button = document.getElementById("btn");
+        let counter = document.getElementById("counter");
+
+        let count = 0; // Counter variable
+
+        // Event Listener for button click
+        button.addEventListener("click", function() {
+            count++; // Increase count
+            counter.textContent = count; // Update counter in DOM
+        });
+    </script>
+
+</body>
+</html>

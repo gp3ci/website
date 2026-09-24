@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Load Image on Button Click</title>
+</head>
+<body>
+    <h1>Click the Button to Load an Image</h1>
+    <button onclick="loadImage()">Load Image</button>
+
+    <!-- Image placeholder -->
+    <img id="myImage" style="display: none;" alt="Loaded Image">
+
+    <script>
+        function loadImage() {
+            // Get the image element
+            const img = document.getElementById("myImage");
+            
+            // Set the image URL
+            img.src = "https://via.placeholder.com/400"; // Replace with your image URL
+            
+            // Make the image visible
+            img.style.display = "block";
+        }
+    </script>
+</body>
+</html>
+ 

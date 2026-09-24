@@ -1,0 +1,8 @@
+/* Margin styles */
+.container {
+    margin: 20px; /* Adds 20px margin on all sides */
+    margin-top: 10px; /* Adds 10px margin to the top */
+    margin-right: 15px; /* Adds 15px margin to the right */
+    margin-bottom: 10px; /* Adds 10px margin to the bottom */
+    margin-left: 5px; /* Adds 5px margin to the left */
+}

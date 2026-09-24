@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Type Conversion</title>
+</head>
+<body> 
+    <h1>JavaScript Type Conversion Examples</h1>
+    
+    <p>Open the browser console to see the output.</p>
+
+    <script>
+        // 1. Convert String to Number
+        let str = "123";
+        let num = Number(str);
+        console.log("String to Number: ", num); // 123
+
+        // 2. Convert Number to String
+        let num2 = 456;
+        let str2 = String(num2);
+        console.log("Number to String: ", str2); // "456"
+
+        // 3. Convert Boolean to String
+        let bool = true;
+        let boolStr = String(bool);
+        console.log("Boolean to String: ", boolStr); // "true"
+
+        // 4. Convert String to Boolean
+        let strBool = "true";
+        let boolVal = Boolean(strBool);
+        console.log("String to Boolean: ", boolVal); // true
+
+        // 5. Convert Number to Boolean
+        let num3 = 0;
+        let boolNum = Boolean(num3);
+        console.log("Number to Boolean: ", boolNum); // false
+    </script>
+</body>
+</html>
+

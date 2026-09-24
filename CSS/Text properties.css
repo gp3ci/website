@@ -1,0 +1,17 @@
+/* Text properties */
+h1 {
+    color: darkblue; /* Sets text color */
+    text-align: center; /* Centers the text */
+    text-decoration: underline; /* Underlines the text */
+    text-transform: uppercase; /* Converts text to uppercase */
+    letter-spacing: 2px; /* Adds space between letters */
+    word-spacing: 4px; /* Adds space between words */
+}
+/* Font properties */
+p {
+    font-family: Arial, sans-serif; /* Sets the font family */
+    font-size: 16px; /* Sets the font size */
+    font-weight: bold; /* Makes text bold */
+    font-style: italic; /* Makes text italic */
+    line-height: 1.5; /* Sets the line spacing */
+}

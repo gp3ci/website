@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Move Box</title>
+    <style>
+        #box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+</head> 
+<body>
+    <div id="box"></div>
+    <button onclick="moveBox()">Move</button>
+
+    <script>
+        function moveBox() {
+            const box = document.getElementById("box");
+            let position = 0;
+            const interval = setInterval(() => {
+                if (position >= 300) {
+                    clearInterval(interval);
+                } else {
+                    position++;
+                    box.style.left = position + "px";
+                }
+            }, 5);
+        }
+    </script>
+</body>
+</html>
+'''
+function rotateBox() {
+    const box = document.getElementById("box");
+    let angle = 0;
+    const interval = setInterval(() => {
+        if (angle >= 360) {
+            angle = 0; // Loop rotation
+        }
+        angle += 2; // Speed of rotation
+        box.style.transform = `rotate(${angle}deg)`;
+    }, 10);
+}
+
+
+function fadeInBox() {
+    const box = document.getElementById("box");
+    let opacity = 0;
+    box.style.opacity = opacity;
+    const interval = setInterval(() => {
+        if (opacity >= 1) {
+            clearInterval(interval);
+        } else {
+            opacity += 0.02; // Speed
+            box.style.opacity = opacity;
+        }
+    }, 30);
+}
+
+
+function fadeOutBox() {
+    const box = document.getElementById("box");
+    let opacity = 1;
+    const interval = setInterval(() => {
+        if (opacity <= 0) {
+            clearInterval(interval);
+        } else {
+            opacity -= 0.02;
+            box.style.opacity = opacity;
+        }
+    }, 30);
+}
+
+
+function growBox() {
+    const box = document.getElementById("box");
+    let size = 50; // starting size in px
+    const interval = setInterval(() => {
+        if (size >= 200) { // max size
+            clearInterval(interval);
+        } else {
+            size += 2; // growth rate
+            box.style.width = size + "px";
+            box.style.height = size + "px";
+        }
+    }, 20);
+}
+
+
+function bounceBox() {
+    const box = document.getElementById("box");
+    let position = 0;
+    let speed = 3;
+    const interval = setInterval(() => {
+        position += speed;
+        box.style.top = position + "px";
+
+        if (position >= 200 || position <= 0) {
+            speed = -speed; // Reverse direction
+        }
+    }, 10);
+}
+
+
+function colorChangeBox() {
+    const box = document.getElementById("box");
+    let colors = ["red", "blue", "green", "yellow", "purple"];
+    let index = 0;
+    setInterval(() => {
+        box.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length;
+    }, 500); // Change every 0.5 sec
+}
+'''

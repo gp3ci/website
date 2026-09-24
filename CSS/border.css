@@ -1,0 +1,9 @@
+/* Border styles */
+.container {
+    border: 2px solid black; /* Adds a solid border to all sides */
+    border-top: 3px dashed red; /* Adds a dashed border to the top */
+    border-right: 4px dotted blue; /* Adds a dotted border to the right */
+    border-bottom: 5px double green; /* Adds a double border to the bottom */
+    border-left: 6px groove purple; /* Adds a groove border to the left */
+    border-radius: 8px; /* Rounds the corners */
+}

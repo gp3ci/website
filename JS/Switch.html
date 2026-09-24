@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Switch Statement Example</title>
+</head>
+<body>
+  <h1>Switch Statement Example</h1>
+  <button onclick="getColor()">Get Color</button>
+
+  <script>
+    function getColor() {
+      let color = prompt("Enter a color (red, green, blue): ");
+
+      switch (color) {
+        case "red":
+          alert("You chose red!");
+          break;
+        case "green":
+          alert("You chose green!");
+          break;
+        case "blue":
+          alert("You chose blue!");
+          break;
+        default:
+          alert("Invalid color choice!");
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+

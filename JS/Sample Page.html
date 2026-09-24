@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Page using JS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #content {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #333;
+            display: inline-block;
+        }
+        .highlight {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Simple HTML Page Created Using JavaScript</h2>
+    <button onclick="createPage()">Click to Generate Content</button>
+
+    <div id="content"></div>
+
+    <script>
+        // Function to create the page dynamically
+        function createPage() {
+            let contentDiv = document.getElementById("content");
+            
+            // Create a heading
+            let heading = document.createElement("h3");
+            heading.textContent = "Welcome to My JavaScript Page!";
+            heading.classList.add("highlight");
+
+            // Create a paragraph
+            let paragraph = document.createElement("p");
+            paragraph.textContent = "This page is dynamically created using JavaScript.";
+
+            // Display current date and time
+            let dateTime = new Date();
+            let datePara = document.createElement("p");
+            datePara.textContent = "Current Date & Time: " + dateTime.toLocaleString();
+
+            // Create an unordered list dynamically
+            let ul = document.createElement("ul");
+            let items = ["HTML", "CSS", "JavaScript"];
+            items.forEach(function(item) {
+                let li = document.createElement("li");
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+
+            // Clear previous content and append new elements
+            contentDiv.innerHTML = "";
+            contentDiv.appendChild(heading);
+            contentDiv.appendChild(paragraph);
+            contentDiv.appendChild(datePara);
+            contentDiv.appendChild(ul);
+        }
+    </script>
+
+</body>
+</html>

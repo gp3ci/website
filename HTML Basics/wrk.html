@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portfolio</title>
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary-color: #6200ea;
+      --secondary-color: #03dac6;
+      --font-main: 'Segoe UI', sans-serif;
+    }
+
+    /* General Styles */
+    body {
+      font-family: var(--font-main);
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #eee;
+      padding: 10px 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-right: 15px;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--secondary-color);
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+    }
+
+    p {
+      color: #555;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    form {
+      margin-top: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    input:focus {
+      border-color: var(--primary-color);
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3700b3;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid-layout {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      body {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>My Portfolio</h1>
+    <p>By John Doe | Aspiring Web Developer</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="container">
+        <div class="card" style="flex: 1;">
+          <p>Hello! I’m John, a 2nd-year Computer Science student passionate about building beautiful and functional web applications.</p>
+          <ul>
+            <li>🎓 B.Tech - CSE</li>
+            <li>📍 Location: Hyderabad, India</li>
+            <li>📧 Email: john.doe@example.com</li>
+          </ul>
+        </div>
+        <div style="flex: 1;">
+          <img src="https://via.placeholder.com/300x200.png?text=My+Photo" alt="Profile photo">
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>My Skills</h2>
+      <div class="grid-layout">
+        <div class="card">HTML & CSS</div>
+        <div class="card">JavaScript</div>
+        <div class="card">Python</div>
+        <div class="card">React</div>
+        <div class="card">MySQL</div>
+        <div class="card">Git & GitHub</div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="card">
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio built with HTML, CSS, and JavaScript to showcase my work.</p>
+        <a href="https://github.com" target="_blank">View Code</a>
+      </div>
+      <div class="card">
+        <h3>Student Record System</h3>
+        <p>A simple CRUD application using Python and MySQL.</p>
+        <a href="https://github.com" target="_blank">View Code</a>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Education</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Institution</th>
+            <th>Course</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2023 - Present</td>
+            <td>ABC College of Engineering</td>
+            <td>B.Tech - CSE</td>
+            <td>8.5 CGPA</td>
+          </tr>
+          <tr>
+            <td>2021 - 2023</td>
+            <td>XYZ Junior College</td>
+            <td>Intermediate MPC</td>
+            <td>94%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your Name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your Email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Your message..."></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <!-- Multimedia Section -->
+    <section>
+      <h2>My Introduction Video</h2>
+      <video width="100%" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 John Doe. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

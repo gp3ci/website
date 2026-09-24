@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- ❌ mistake -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Utilities, Alerts & Modal – Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="py-4 bg-dark text-white text-center"> <!-- ❌ mistake -->
+  <div class="container">
+    <h1 class="h3">Utilities, Alerts & Modal</h1>
+  </div>
+</header>
+
+<main class="container my-4">
+  <section class="mb-4">
+    <h2 class="h5">Utility Classes</h2>
+    <!-- ❌ mistake -->
+    <div class="p-4 mt-5 bg-light border rounded">
+      <p class="mb-0">
+        This box uses spacing, background, and border utilities.
+        <span class="text-primary fw-bold">Primary text</span> <!-- ❌ mistake -->
+      </p>
+    </div>
+  </section>
+
+  <section class="mb-4">
+    <h2 class="h5">Alerts</h2>
+    <!-- ❌ mistake -->
+    <div class="alert alert-success" role="alert">
+      Success! Your profile was updated.
+    </div>
+    <div class="alert alert-warning" role="alert">
+      Warning: Please verify your email address.
+    </div>
+    <div class="alert alert-danger" role="alert">
+      Error: Something went wrong.
+    </div>
+  </section>
+
+  <section class="mb-4">
+    <h2 class="h5">Modal</h2>
+    <!-- ❌ mistake (id mismatch with actual modal) -->
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">Open Contact Modal</button>
+  </section>
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true" aria-labelledby="contactModalLabel"> <!-- ❌ mistakes -->
+  <div class="modal-dialog">
+    <!-- ❌ mistake -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- ❌ mistake -->
+        <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+        <!-- ❌ mistake -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="email" class="form-control mb-3" placeholder="you@example.com">
+        <textarea class="form-control" rows="3" placeholder="Your message"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-success">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="py-4 bg-dark text-white text-center">
+  <small>© Utilities & Modal Demo</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- ❌ mistake -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cards & Buttons – Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="py-3 bg-primary text-white">
+  <div class="container">
+    <h1 class="h3 mb-0">Cards & Buttons</h1>
+  </div>
+</header>
+
+<main class="container my-4">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <!-- ❌ mistake -->
+        <img src="https://picsum.photos/seed/a/600/300" class="card-im-top" alt="...">
+        <div class="card-body">
+          <!-- ❌ mistake -->
+          <h5 class="card-tite">Starter Plan</h5>
+          <p class="card-text">Get started with basic features for personal projects.</p>
+          <!-- ❌ mistake -->
+          <a href="#" class="btn-prmary btn">Choose</a>
+        </div>
+        <div class="card-footer text-muted">Limited Support</div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://picsum.photos/seed/b/600/300" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pro Plan</h5>
+          <p class="card-text">Advanced features for growing teams and businesses.</p>
+          <!-- ❌ mistake -->
+          <div class="btn-grop" role="group">
+            <a href="#" class="btn btn-outline-succes">Details</a> <!-- ❌ mistake -->
+            <a href="#" class="btn btn-prmary">Upgrade</a> <!-- ❌ mistake -->
+          </div>
+        </div>
+        <div class="card-footer text-muted">Priority Support</div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://picsum.photos/seed/c/600/300" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Enterprise</h5>
+          <p class="card-text">Custom solutions, SSO, SLAs, and dedicated success manager.</p>
+          <!-- ❌ mistake -->
+          <button class="btn btn-outline-prmary me-2">Contact Sales</button>
+          <!-- ❌ mistake -->
+          <button class="btn btn-danger">Book Demo</button>
+        </div>
+        <div class="card-footer text-muted">24/7 Dedicated Support</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="py-4 bg-dark text-white text-center">
+  <small>© Cards Demo</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
